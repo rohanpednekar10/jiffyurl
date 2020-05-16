@@ -1,0 +1,106 @@
+{% extends 'shortener/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Shortener file -->
+    <div class="container pb-5">
+      <div class="row mt-5 text-center">
+        <div class="col-sm">
+          <h1>Paste the URL to be shortened.</h1>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-sm">
+          <form method="post" action=".">
+            {% csrf_token %}
+            <div class="input-group">
+              {{ form }}
+              <button class="btn btn-outline-primary btn-lg" type="submit">Shorten</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      {% if submitted %}
+        {% if not valid %}
+          <div class="row my-5 text-center">
+            <div class="col-sm justify-content-center">
+              <img class="img-fluid" src="{% static 'images/error.png' %}">
+              <h5 class="card-title">May be you've pasted invalid URL!</h5>
+            </div>
+          </div>
+        {% else %}
+          <div class="row mb-5">
+            <div class="col-sm">
+                <div class="input-group mt-4">
+                  <input id="short-url" class="form-control mr-2 form-control-lg" type="text" value={{ object.get_short_url }} readonly>
+                  <button class="btn btn-outline-success btn-lg" onclick="copyLink()">Copy</button>
+                </div>
+            </div>
+          </div>
+
+          <div class="row my-5 pt-4 text-center">
+            <div class="col-sm">
+              <h2>Link details</h2>
+            </div>
+          </div>
+
+          <div class="row mb-5 pb-5">
+            <div class="col-sm my-auto justify-content-center">
+              <div class="row row-cols-1 row-cols-md-2">
+                <div class="col mb-4">
+                  <div class="card text-center">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ object.get_url_length }}</h5>
+                      <p class="card-text">Original length</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col mb-4">
+                  <div class="card text-center">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ object.get_short_url_length }}</h5>
+                      <p class="card-text">Shortened Length</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm my-auto justify-content-center">
+              <div class="row row-cols-1 row-cols-md-2">
+                {% if created %}
+                  <div class="col mb-4">
+                    <div class="card text-center bg-success">
+                      <div class="card-body">
+                        <h5 class="card-title status-text">New</h5>
+                        <p class="card-text status-text">Link Status</p>
+                      </div>
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="col mb-4">
+                    <div class="card text-center bg-danger">
+                      <div class="card-body">
+                        <h5 class="card-title status-text">Old</h5>
+                        <p class="card-text status-text">Link Status</p>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+                <div class="col mb-4">
+                  <div class="card text-center">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ object.get_date_of_expiry }}</h5>
+                      <p class="card-text">Expiry</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+    <!-- End Shortener file -->
+{% endblock %}

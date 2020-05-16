@@ -1,0 +1,12 @@
+{% extends 'shortener/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+      <div class="row my-5 pb-5 text-center">
+        <div class="col-sm my-auto justify-content-center">
+            <img width="300" height="300" src="{% static 'images/404.png' %}">
+            <h2>Page Not Found.</h2>
+        </div>
+      </div>
+    </div>
+{% endblock %}

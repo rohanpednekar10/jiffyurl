@@ -1,0 +1,119 @@
+/*global styling*/
+
+html {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+h1, h2, h4, h5, p, a{
+	font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+	font-weight: 900;
+	font-size: 350%;
+}
+
+h2 {
+	font-weight: 800;
+	font-size: 300%;
+}
+
+h4 {
+	font-weight: 700;	
+}
+
+/*end global styling*/
+
+/*navbar styling*/
+
+nav {
+	background-color: white;
+}
+
+.nav-link {
+	font-weight: 700;
+	font-size: 120%;
+}
+
+#logo {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+
+/*end navbar styling*/
+
+/*form styling*/
+
+.form-control {
+	border-radius: 10px;
+	height: 60px;
+}
+
+.btn {
+	font-family: 'Montserrat', sans-serif;
+	border-radius: 10px;
+}
+
+/*end form styling*/
+
+/*footer styling*/
+
+footer {
+	background-color: #ff554f;
+	width: 100%;
+	margin-top: auto;
+}
+
+/*end footer styling*/
+
+/*white text*/
+
+.status-text, .text-footer, .link {
+	color: white;
+}
+
+.link:hover {
+    color: white;
+}
+
+/*end white text*/
+
+/*card styling*/
+
+.card {
+	border-radius: 10px;
+}
+
+.card-title {
+	font-size: 180%;
+	font-weight: 600;
+}
+
+.card-text {
+	font-size: 120%;
+}
+/*end card styling*/
+
+/*image styling*/
+
+/*end image styling*/
+
+/*custom scrollbar*/
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: lightgrey;
+	border-radius: 5px;
+}
+
+/*end custom scrollbar*/
