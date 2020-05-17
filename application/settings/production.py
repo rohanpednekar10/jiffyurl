@@ -122,6 +122,7 @@ USE_TZ = True
 # custom variables
 SHORTCODE_MAX = 15
 SHORTCODE_MIN = 6
+DEFAULT_HOST = 'https://jiffyurl.herokuapp.com/'
 # end custom variables
 
 # Static files (CSS, JavaScript, Images)

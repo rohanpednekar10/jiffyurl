@@ -50,64 +50,50 @@
 
           <div class="row mb-5 pb-5">
             <div class="col-sm my-auto justify-content-center">
-              <div class="row row-cols-1 row-cols-md-2">
-                <div class="col mb-4">
-                  <div class="card text-center">
-                    <div class="card-body">
-                      <h5 class="card-title">
-                        {% if object.clickevent.click_count %}
-                          {{ object.clickevent.click_count }}
-                        {% else %}
-                          0
-                        {% endif %}
-                      </h5>
-                      <p class="card-text">Clicks</p>
-                    </div>
+              <div class="card-deck">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      {% if object.clickevent.click_count %}
+                        {{ object.clickevent.click_count }}
+                      {% else %}
+                        0
+                      {% endif %}
+                    </h5>
+                    <p class="card-text">Clicks</p>
                   </div>
                 </div>
                 {% if object.active %}
-                  <div class="col mb-4">
-                    <div class="card text-center bg-success">
-                      <div class="card-body">
-                        <h5 class="card-title status-text">Yes</h5>
-                        <p class="card-text status-text">Active</p>
-                      </div>
+                  <div class="card text-center bg-success">
+                    <div class="card-body">
+                      <h5 class="card-title status-text">Yes</h5>
+                      <p class="card-text status-text">Active</p>
                     </div>
                   </div>
                 {% else %}
-                  <div class="col mb-4">
-                    <div class="card text-center bg-danger">
-                      <div class="card-body">
-                        <h5 class="card-title status-text">No</h5>
-                        <p class="card-text status-text">Active</p>
-                      </div>
+                  <div class="card text-center bg-danger">
+                    <div class="card-body">
+                      <h5 class="card-title status-text">No</h5>
+                      <p class="card-text status-text">Active</p>
                     </div>
                   </div>
                 {% endif %}
-              </div>
-            </div>
-            <div class="col-sm my-auto justify-content-center">
-              <div class="row row-cols-1 row-cols-md-2">
-                <div class="col mb-4">
-                  <div class="card text-center">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ object.get_date_of_creation }}</h5>
-                      <p class="card-text">Created</p>
-                    </div>
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ object.get_date_of_creation }}</h5>
+                    <p class="card-text">Created</p>
                   </div>
                 </div>
-
-                <div class="col mb-4">
-                  <div class="card text-center">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ object.get_date_of_expiry }}</h5>
-                      <p class="card-text">Expiry</p>
-                    </div>
+                <div class="card text-center">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ object.get_date_of_expiry }}</h5>
+                    <p class="card-text">Expiry</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
         {% endif %}
       {% endif %}
     </div>

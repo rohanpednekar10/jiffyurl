@@ -5,6 +5,7 @@ from datetime import timedelta, date
 from django.urls import reverse
 from .utils import create_shortcode
 from .validators import validate_url
+from django.conf import settings
 
 # create your variables here
 SHORTCODE_MAX = getattr(settings, "SHORTCODE_MAX", 15)
@@ -34,13 +35,13 @@ class URL(models.Model):
         return self.url
 
     def get_short_url(self):
-        return 'http://127.0.0.1:8000/' + self.shortcode
+        return settings.DEFAULT_HOST + self.shortcode
 
     def get_url_length(self):
         return len(self.url)
 
     def get_short_url_length(self):
-        return len(self.shortcode)
+        return len(self.shortcode) + len(settings.DEFAULT_HOST)
 
     def get_date_of_creation(self):
         return self.date_of_creation.date()
