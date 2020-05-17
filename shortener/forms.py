@@ -1,4 +1,5 @@
 from django import forms
+from django.conf import settings
 from .validators import validate_url
 import re
 
@@ -33,5 +34,5 @@ class AnalyticsForm(forms.Form):
 
     def get_shortcode(self):
         short_url = self.cleaned_data['short_url']
-        shortcode = re.sub('http://127.0.0.1:8000/', '', short_url)
+        shortcode = re.sub(settings.DEFAULT_HOST, '', short_url)
         return shortcode
